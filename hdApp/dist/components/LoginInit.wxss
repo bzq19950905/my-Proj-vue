@@ -1,0 +1,67 @@
+
+.LoginInitBox._170471a {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.chooseLike._170471a {
+  height: auto;
+  padding-top: 40rpx;
+}
+.chooseLike_title._170471a {
+  padding: 10rpx 20rpx;
+  font-size: 35rpx;
+}
+.chooseLike_content._170471a {
+  background: #fff;
+  height: auto;
+  padding: 25rpx 20rpx;
+}
+.like_item._170471a {
+  display: inline-block;
+  background: #ccc;
+  color: #666;
+  padding: 0 20rpx;
+  margin: 15rpx 20rpx;
+  font-size: 30rpx;
+  border-radius: 10rpx;
+}
+.active._170471a {
+  background: #0f0;
+  color: #fff;
+}
+.inputWorkYear._170471a {
+  margin-top: 20rpx;
+}
+.inputWorkYear_content._170471a {
+  padding: 30rpx;
+  position: relative;
+}
+.inputWorkYear_content input._170471a {
+  width: 450rpx;
+  height: 60rpx;
+  border: 1px solid #ccc;
+  background: #fff;
+  box-shadow: 2rpx 2rpx 2rpx #ccc, 2rpx 2rpx 2rpx #ccc, 2rpx -2rpx 2rpx #ccc,
+    -2rpx 2rpx 2rpx #ccc;
+}
+.inputWorkYear_content text._170471a {
+  position: absolute;
+  left: 430rpx;
+  top: 40rpx;
+  background: #fff;
+  z-index: 10;
+  line-height: 40rpx;
+  font-size: 35rpx;
+  color: #666;
+}
+.submitBox._170471a {
+  margin-top: 40px;
+}
+.submitBox button._170471a {
+  background: rgb(218, 154, 35);
+  color: #fff;
+  margin: 0 20rpx;
+}

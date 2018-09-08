@@ -1,0 +1,8 @@
+$font-size-sm:12px;
+$font-size-sx:14px;
+$font-size-lg:16px;
+
+@mixin wh($width,$height) {
+    width: $width;
+    height: $height;
+}

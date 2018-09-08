@@ -1,0 +1,43 @@
+<template>
+<block wx:for="{{propDatas}}" wx:key="{{item.id}}">
+  <view class="tab_con_main_item">
+    <text>￥{{item.price}}</text>
+    <text>{{item.tit}}</text>
+    <text>{{item.date}}</text>
+  </view>
+</block>
+
+</template>
+<script>
+import wepy from 'wepy'
+export default class TeacherWalletTabLeftCon extends wepy.component {
+  props = {
+    propDatas: {
+      type: Object,
+      default: null
+    }
+  }
+}
+</script>
+<style scoped>
+.tab_con_main_item {
+  background: #fff;
+  padding: 20rpx 20rpx;
+  font-size: 30rpx;
+  display: flex;
+  border-bottom: 1px solid #ccc;
+}
+.tab_con_main_item text:nth-child(1) {
+  color: #f16f6f;
+  margin: 0 10rpx;
+}
+.tab_con_main_item text:nth-child(2) {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.tab_con_main_item text:nth-child(3) {
+  margin: 0 10rpx;
+}
+</style>

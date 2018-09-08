@@ -1,0 +1,23 @@
+
+<view class="teacherSetBox _4758678">
+  <view class="section_input _4758678">
+    <view class="section_input_item _4758678">
+      <text class="_4758678">每日免费提问名额</text>
+      <input type="text" class="_4758678"/>
+    </view>
+    <view class="section_input_item _4758678">
+      <text class="_4758678">付费提问价格</text>
+      <input type="text" class="_4758678"/>
+    </view>
+  </view>
+  <view class="section_select _4758678">
+    <view class="select _4758678">
+      <text class="_4758678">擅长领域</text>
+      <input type="text" placeholder="前端" class="_4758678"/>
+    </view>
+    <view class="history _4758678">
+      <text  wx:for="{{history}}" wx:key="{{index}}" class="_4758678">{{item}}</text>
+    </view>
+  </view>
+  <view class="section_btn _4758678">保存</view>
+</view>

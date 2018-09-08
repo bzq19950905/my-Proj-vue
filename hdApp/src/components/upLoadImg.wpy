@@ -1,0 +1,94 @@
+<template>
+<view class="container">
+  <view class="weui-uploader">
+    <view class="weui-uploader__hd">
+      <view class="weui-uploader__title">图片上传</view>
+      <view class="weui-uploader__info">{{files.length}}/{{imgLen}}</view>
+    </view>
+    <view class="weui-uploader__bd">
+      <view class="weui-uploader__files" id="uploaderFiles">
+        <block wx:for="{{files}}" wx:key="*this">
+          <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
+            <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+          </view>
+        </block>
+      </view>
+      <view class="weui-uploader__input-box">
+          <button class="weui-uploader__input" disabled="{{flag?'':'disabled'}}" bindtap="chooseImage"></button>
+      </view>
+    </view>
+  </view>
+  <button bindtap="upLoadFile">保存</button>
+</view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import baseMixin from '../mixins/base'
+import { upLoadFileAction } from '../action/action'
+
+export default class UpLoadImg extends wepy.component {
+  data = {
+    files: [],
+    chooseImgpath: '',
+    imgLen: 1,
+    flag: true,
+    editOption: {}
+  }
+  mixins = [baseMixin]
+  async onLoad() {
+    let data = await this.getRouterUserInfo()
+    this.editOption = data
+  }
+  methods = {
+    chooseImage(e) {
+      wepy.chooseImage({
+        count: 1,
+        sizeType: ['original', 'compressed'],
+        sourceType: ['album', 'camera']
+      }).then(res => {
+        this.files = this.data.files.concat(res.tempFilePaths)
+        this.chooseImgpath = res.tempFilePaths[0]
+        this.$apply()
+      })
+    },
+    // 上传文件
+    upLoadFile() {
+      wepy.showModal({
+        content: '修改成功',
+        confirmText: '保存返回',
+        cancelText: '取消保存'
+      }).then((res) => {
+        upLoadFileAction({
+          filePath: this.chooseImgpath,
+          name: 'avatar'
+        }, async (res) => {
+          let data = JSON.parse(res.data)
+          let paths = data.data.avatar
+          await this.editUser({
+            avatar: paths
+          })
+          wepy.navigateBack({
+            url: '../pages/EditMaterial'
+          })
+        })
+      })
+    },
+    // 点击预览图片
+    previewImage(e) {
+      wepy.previewImage({
+        current: e.currentTarget.id,
+        urls: this.data.files
+      })
+    }
+  }
+}
+</script>
+
+<style scoped>
+.container{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+</style>

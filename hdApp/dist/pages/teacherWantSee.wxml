@@ -1,0 +1,31 @@
+
+<view class="container _51977b9">
+  <view class="con _51977b9">
+    
+<block  wx:for="{{$teacherDetailLR$con}}" wx:key="{{index}}" class="_ea08213 _51977b9">
+  <view class="teacherDes_con_item {{$teacherDetailLR$isMargin ? 'marginStyle' : ''}} _ea08213">
+    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg _ea08213">
+      <image class="weui-media-box__thumb _ea08213" src="{{item.img}}"/>
+    </view>
+    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg _ea08213">
+      <view class="weui-media-box__title _ea08213">
+        <text class="name_userifo _ea08213">{{item.name}}</text>
+        <text class="name_position _ea08213">阿里巴巴资深前端工程师</text>
+      </view>
+      <view class="weui-media-box__desc _ea08213">
+        <view class="section_right_little_span _ea08213">
+          <text class="_ea08213">158回答</text>
+          <text class="_ea08213">1000粉丝</text>
+          <text class="_ea08213">200想见</text>
+        </view>
+        <view class="text_title _ea08213">给年轻学者的网络技巧</view>
+        <view class="text_content _ea08213">Google Scholar页面</view>
+      </view>
+    </view>
+  </view>
+</block>
+  </view>
+  <view class="btnBox _51977b9">
+    <button type="default" size="default" class="btn _51977b9" bindtap="clickToRoute">发起线下活动</button>
+  </view>
+</view>

@@ -1,0 +1,63 @@
+
+.list_ul._5f6bdc8 {
+  width: 100%;
+  overflow: hidden;
+  margin-top: 40rpx;
+
+  margin-bottom: 20rpx;
+}
+.list_li._5f6bdc8 {
+  width: 100%;
+  height: 200rpx;
+  background: #fff;
+  border-bottom: 1rpx solid #ccc;
+  margin-top: 30rpx;
+}
+.list_li._5f6bdc8:last-child {
+  border-bottom: 0;
+}
+.notoken._5f6bdc8 {
+  display: inline-block;
+  width: 100rpx;
+  height: 40rpx;
+  background: palevioletred;
+  color: #fff;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  text-align: center;
+  border-radius: 10rpx;
+  margin-right: 20rpx;
+}
+.list_li_text._5f6bdc8 {
+  float: left;
+}
+.list_li_text_text._5f6bdc8 {
+  font-size: 36rpx;
+  margin-top: 50rpx;
+  margin-left: 40rpx;
+}
+.money._5f6bdc8 {
+  margin-top: 20rpx;
+  margin-left: 40rpx;
+}
+.money_m._5f6bdc8 {
+  color: gold;
+  font-size: 28rpx;
+}
+.money_h._5f6bdc8 {
+  font-size: 28rpx;
+  margin-left: 30rpx;
+}
+.money_j._5f6bdc8 {
+  font-size: 28rpx;
+  margin-left: 30rpx;
+}
+.more._5f6bdc8 {
+  float: right;
+  line-height: 200rpx;
+}
+.more image._5f6bdc8 {
+  width: 38rpx;
+  height: 38rpx;
+  margin-right: 28rpx;
+}

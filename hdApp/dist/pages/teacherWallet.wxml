@@ -1,0 +1,27 @@
+
+<view class="container _a8dccf2">
+  <view class="balance _a8dccf2">
+    <text class="_a8dccf2">账户余额</text>
+    <text class="_a8dccf2">￥200</text>
+    <text class="_a8dccf2">提现</text>
+  </view>
+  <view class="tab _a8dccf2">
+    <view class="tab_tit _a8dccf2">
+      <text class="{{activeIndex===0?'activeStyle':''}} _a8dccf2" bindtap="clickFn" data-wpyclickfn-a="0">收入明细</text>
+      <text class="{{activeIndex===1?'activeStyle':''}} _a8dccf2" bindtap="clickFn" data-wpyclickfn-a="1">提现记录</text>
+    </view>
+    <view class="tab_con _a8dccf2">
+      <view class="tab_con_tit _a8dccf2">累计收入 ￥1000</view>
+      <view class="tab_con_main _a8dccf2">
+        
+<block  wx:for="{{$teacherWalletTabLeftCon$propDatas}}" wx:key="{{item.id}}" class="_101d44a _a8dccf2">
+  <view class="tab_con_main_item _101d44a">
+    <text class="_101d44a">￥{{item.price}}</text>
+    <text class="_101d44a">{{item.tit}}</text>
+    <text class="_101d44a">{{item.date}}</text>
+  </view>
+</block>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,20 @@
+
+  <view class="box _e07f2a2">
+    <view class="head _e07f2a2">{{ids}}</view>
+    <view class="main _e07f2a2"/>
+    
+<view class="foot _64c3a0e _e07f2a2" wx:if="{{type === 'question'}}">
+  <text class="text _64c3a0e">{{$startLeven$propDatas.text}}</text>
+  <view class="star_box _64c3a0e">
+    <block  wx:for="{{$startLeven$starData}}" wx:key="{{index}}" class="_64c3a0e">
+      <text data-id="{{index}}" bindtap="$startLeven$clickFn" class="iconfont icon-xingxing star {{$startLeven$activeIndex>=(item.id)?'activeClass':''}} _64c3a0e"/>
+    </block>
+  </view>
+</view>
+    
+<view class="btnGroup _b3e19ad _e07f2a2" wx:if="{{type === 'trends'}}">
+  <button class="_b3e19ad">收藏{{$btnGroupCom$item.collect}}</button>
+  <button class="_b3e19ad">有用{{$btnGroupCom$item.use}}</button>
+  <button class="_b3e19ad">评论{{$btnGroupCom$item.comment}}</button>
+</view>
+  </view>

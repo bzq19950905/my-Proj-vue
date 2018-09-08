@@ -1,0 +1,77 @@
+<template>
+<view class="box">
+  <view class="tab">
+    <block wx:for="{{tabs}}" wx:key="{{index}}">
+      <text bindtap="checkStyleFn({{index}})" class="{{activeIndex==index?'tab_text':''}}">{{item}}</text>
+    </block>
+  </view>
+  <teacher-TabCon :content.sync="propData"/>
+</view>
+
+</template>
+<script>
+import wepy from 'wepy'
+import TeacherTabCon from '../components/teacherTabCon'
+import mockData from '../common/mock'
+
+export default class Teacher extends wepy.page {
+  config = {
+    navigationBarTitleText: '想见的导师'
+  }
+  components = {
+    'teacher-TabCon': TeacherTabCon
+  }
+  data = {
+    tabs: ['我想见的', '约见记录'],
+    activeIndex: 0,
+    content1: mockData.TeacherList1,
+    content2: mockData.TeacherList2,
+    propData: null
+  }
+  onLoad() {
+    this.propData = this.content1
+  }
+  methods = {
+    checkStyleFn(index) {
+      console.log(index)
+      this.activeIndex = index
+      let arr = index == 0 ? this.content1 : this.content2
+      this.propData = arr
+    }
+  }
+}
+</script>
+<style>
+.box {
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+}
+.weui-navbar__item1 {
+  width: 25%;
+  height: 100%;
+}
+
+.tab {
+  width: 100%;
+  height: 80rpx;
+  background: #fff;
+  margin: 20rpx 0;
+  font-size: 32rpx;
+  position: relative;
+}
+.tab text {
+  display: inline-block;
+  width: 160rpx;
+  text-align: center;
+  line-height: 80rpx;
+}
+.tab_text {
+  color: #f00;
+  border-bottom: 6rpx solid #f00;
+}
+.weui-tab__panel {
+  margin: 0;
+  padding: 0;
+}
+</style>

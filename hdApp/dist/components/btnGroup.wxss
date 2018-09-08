@@ -1,0 +1,15 @@
+
+.btnGroup._b3e19ad {
+  height: 80rpx;
+  display: flex;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+.btnGroup button._b3e19ad {
+  flex: 1;
+  font-size: 30rpx;
+  color: #333;
+  border: none;
+  padding: 0;
+  line-height: 80rpx;
+}

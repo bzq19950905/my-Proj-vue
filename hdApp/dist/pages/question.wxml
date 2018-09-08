@@ -1,0 +1,22 @@
+
+<view class="container _3d47884">
+  <view class="tab _3d47884">
+    <text bindtap="checkStyleFn" data-id="0" class="{{activeId==0?'tab_text':''}} _3d47884">已回复</text>
+    <text bindtap="checkStyleFn" data-id="1" class="{{activeId==1?'tab_text':''}} _3d47884">未回复</text>
+  </view>
+  
+<view class="main _60d1d96 _3d47884">
+  <view  wx:for="{{$questionCon$datas}}" wx:for-item="item" wx:key="{{index}}" class="con _60d1d96" bindtap="$questionCon$clickFn" data-wpyclickfn-a="{{item.id}}">
+    <view class="con_tit _60d1d96">
+      <span wx:if="{{!item.isRead}}" class="_60d1d96">{{item.isRead?'':'未读'}}</span>
+      <text class="con_tit_text _60d1d96">{{item.title}}</text>
+    </view>
+    <view class="con_des _60d1d96">
+      <text class="con_des_price _60d1d96">{{item.price}}</text>
+      <text class="con_des_isAnsw _60d1d96">{{item.isAnsw?'已回复':'未回复'}}</text>
+      <text class="con_des_isImport _60d1d96">{{item.isImport}}</text>
+    </view>
+    <text class="iconfont icon-youjiantou _60d1d96"/>
+  </view>
+</view>
+</view>

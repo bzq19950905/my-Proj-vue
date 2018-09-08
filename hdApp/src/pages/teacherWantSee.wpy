@@ -1,0 +1,60 @@
+<template>
+<view class="container">
+  <view class="con">
+    <teacher-detailLR :con.sync="content" :isMargin="isMargin"/>
+  </view>
+  <view class="btnBox">
+    <button type="default" size="default" class="btn" bindtap="clickToRoute">发起线下活动</button>
+  </view>
+</view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import TeacherDetailLR from '../components/teacherDetailLR'
+import mockData from '../common/mock'
+
+export default class TeacherWantSee extends wepy.page {
+  config = {
+    navigationBarTitleText: '想见我的人'
+  }
+  components = {
+    'teacher-detailLR': TeacherDetailLR
+  }
+  data = {
+    content: mockData.TeacherWantSeeData,
+    isMargin: true
+  }
+  methods = {
+    clickToRoute() {
+      wepy.navigateTo({
+        url: './OfflineActivities'
+      })
+    }
+  }
+}
+</script>
+
+<style scoped>
+.container {
+  width: 100%;
+  height: 100%;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+}
+.con {
+  flex: 1;
+  overflow-y: scroll;
+}
+.btnBox {
+  width: 100%;
+  height: 80rpx;
+}
+.btn {
+  width: 100%;
+  height: 100%;
+  background: rgb(177, 132, 37);
+  color: #fff;
+}
+</style>

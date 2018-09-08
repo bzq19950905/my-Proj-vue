@@ -1,0 +1,75 @@
+<template>
+<view class="foot">
+  <text class="text">{{propDatas.text}}</text>
+  <view class="star_box">
+    <block wx:for="{{starData}}" wx:key="{{index}}">
+      <text data-id="{{index}}" bindtap="clickFn" class="iconfont icon-xingxing star {{activeIndex>=(item.id)?'activeClass':''}}"></text>
+    </block>
+  </view>
+</view>
+</template>
+<script>
+import wepy from 'wepy'
+export default class StartLeven extends wepy.component {
+  props = {
+    propDatas: {
+      type: Object,
+      default: null
+    }
+  }
+  data = {
+    starData: [
+      {
+        id: 1
+      },
+      {
+        id: 2
+      },
+      {
+        id: 3
+      },
+      {
+        id: 4
+      },
+      {
+        id: 5
+      }
+    ],
+    activeIndex: 0
+  }
+  methods = {
+    clickFn(e) {
+      let id = e.currentTarget.dataset.id
+      this.activeIndex = id + 1
+    }
+  }
+}
+</script>
+<style scoped>
+.foot {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.text {
+  display: inline-block;
+  font-size: 30rpx;
+  flex: 4;
+  display: flex;
+  align-items: center;
+  padding: 0 15rpx;
+}
+.star_box {
+  flex: 6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.star {
+  font-size: 40rpx;
+  margin: 0 10rpx;
+}
+.activeClass {
+  color: rgb(244, 248, 31);
+}
+</style>

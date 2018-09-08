@@ -1,0 +1,86 @@
+<style>
+@import './assets/style/weui.wxss';
+@import './assets/style/iconfont.wxss';
+</style>
+<script>
+import wepy from 'wepy'
+import 'wepy-async-function'
+
+export default class extends wepy.app {
+  config = {
+    pages: [
+      'pages/trends', // 动态
+      'pages/tutor', // 导师
+      'pages/mine', // 学员和导师的个人主页
+      'pages/teacher', // 学员---我想见的导师页面
+      'pages/activeRegistration', // 活动报名页面
+      'pages/question', // 学员---我的提问
+      'pages/questionDetail', // 学员---我的提问--提问详情页
+      'pages/becomeTeacher', // 学员---申请成为导师页面
+      'pages/teacherSet', // 导师---导师的设置页面
+      'pages/teacherWallet', // 导师---导师的收入点击进入账户资金页面
+      'pages/EditMaterial', // 导师和学员---个人资料编辑页面
+      'pages/EditMaterialDetail', // 导师和学员---个人资料编辑的详情页面
+      'pages/teacherWantSee', // 导师---想见我的人
+      'pages/OfflineActivities' // 导师---想见我的人---点击进入线下活动页面
+    ],
+    window: {
+      backgroundTextStyle: 'light', // 下拉背景字体、loading 图的样式，仅支持 dark/light
+      backgroundColor: '#979797', // 窗口的背景颜色
+      navigationBarBackgroundColor: '#3A76E5', // 导航栏背景颜色
+      navigationBarTitleText: 'wechat', // 导航栏标题文字内容
+      navigationBarTextStyle: '#fff', // 导航栏标题颜色
+      enablePullDownRefresh: true, // 是否开启下拉刷新
+      onReachBottomDistance: 50 // 页面上拉触底事件触发时距页面底部距离，单位为px
+    },
+    networkTimeout: {
+      request: 3000
+    },
+    tabBar: {
+      color: '#888888',
+      selectedColor: '#2896ff',
+      borderStyle: 'white',
+      position: 'bottom',
+      list: [
+        {
+          pagePath: 'pages/trends',
+          text: '动态',
+          iconPath: './assets/image/target.png',
+          selectedIconPath: './assets/image/target.png'
+        },
+        {
+          pagePath: 'pages/tutor',
+          text: '导师',
+          iconPath: './assets/image/target.png',
+          selectedIconPath: './assets/image/target.png'
+        },
+        {
+          pagePath: 'pages/mine',
+          text: '我的',
+          iconPath: './assets/image/target.png',
+          selectedIconPath: './assets/image/target.png'
+        }
+      ]
+    }
+  }
+
+  globalData = {
+    userInfo: null,
+    ownUserInfo: {
+      status: 'teacher' // teacher / student
+    }
+  }
+
+  constructor() {
+    super()
+    // 引入插件
+    this.use('requestfix')
+    this.use('promisify')
+  }
+
+  async onLaunch() {
+    // 小程序启动之后 触发
+    console.log('start program')
+  }
+}
+</script>

@@ -1,0 +1,51 @@
+
+.item._fce8e6e {
+  width: 250rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: right;
+  white-space: nowrap;
+}
+.img._fce8e6e {
+  width: 50rpx;
+  height: 50rpx;
+}
+.box._fce8e6e {
+  margin-top: 50rpx;
+}
+.bottomStyle._fce8e6e {
+  box-shadow: 1rpx 8rpx 10rpx rgb(233, 230, 230);
+  margin-bottom: 10rpx;
+}
+.borderNone._fce8e6e::before {
+  border: none;
+}
+.headSculpture._fce8e6e {
+  width: 60rpx;
+  height: 60rpx;
+}
+.headSculpture image._fce8e6e {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.ellipsis._fce8e6e {
+  width: 300rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: right;
+}
+.weui-cell_access1._fce8e6e {
+  width: 100%;
+  position: relative;
+}
+.weui-cell__bd1._fce8e6e {
+  display: inline-block;
+}
+.weui-cell__ft1._fce8e6e {
+  display: inline-block;
+  position: absolute;
+  right: 90rpx;
+  color: #999999;
+}

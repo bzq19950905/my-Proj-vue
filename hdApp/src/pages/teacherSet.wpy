@@ -1,0 +1,109 @@
+<template>
+<view class="teacherSetBox">
+  <view class="section_input">
+    <view class="section_input_item">
+      <text>每日免费提问名额</text>
+      <input type="text"/>
+    </view>
+    <view class="section_input_item">
+      <text>付费提问价格</text>
+      <input type="text"/>
+    </view>
+  </view>
+  <view class="section_select">
+    <view class="select">
+      <text>擅长领域</text>
+      <input type="text" placeholder="前端"/>
+    </view>
+    <view class="history">
+      <text wx:for="{{history}}" wx:key="{{index}}">{{item}}</text>
+    </view>
+  </view>
+  <view class="section_btn">保存</view>
+</view>
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class TeacherSet extends wepy.page {
+  config = {
+    navigationBarTitleText: '提问设置'
+  }
+
+  components = {}
+
+  data = {
+    history: ['Css5', 'javascript', 'html5', 'vue', 'react', 'java', 'phython']
+  }
+}
+</script>
+<style scoped>
+.teacherSetBox {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.section_input {
+  width: 100%;
+  height: auto;
+  margin: 20rpx 0;
+  background: #fff;
+  padding-bottom: 25rpx;
+}
+.section_input_item {
+  padding-left: 25rpx;
+}
+.section_input_item text {
+  font-size: 30rpx;
+  color: #666;
+  line-height: 50rpx;
+}
+.section_input_item input {
+  width: 40%;
+  height: 60rpx;
+  border: 1px solid #ccc;
+}
+
+.section_select {
+  background: #fff;
+  width: 100%;
+  height: auto;
+}
+.select text {
+  font-size: 30rpx;
+  color: #666;
+  line-height: 50rpx;
+}
+.select input {
+  width: 40%;
+  height: 60rpx;
+  border: 1px solid #ccc;
+}
+.history {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 25rpx 0 130rpx 0;
+}
+.history text {
+  padding: 5rpx 27rpx;
+  background: #ccc;
+  margin: 10rpx 20rpx;
+  border-radius: 15rpx;
+}
+
+.section_btn {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100rpx;
+  line-height: 80rpx;
+  background: rgb(216, 188, 30);
+  color: #fff;
+  text-align: center;
+}
+</style>

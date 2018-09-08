@@ -1,0 +1,29 @@
+<template>
+<view class="btnGroup">
+  <button>收藏{{item.collect}}</button>
+  <button>有用{{item.use}}</button>
+  <button>评论{{item.comment}}</button>
+</view>
+</template>
+<script>
+import wepy from 'wepy'
+export default class BtnGroup extends wepy.component {
+
+}
+</script>
+<style scoped>
+.btnGroup {
+  height: 80rpx;
+  display: flex;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+.btnGroup button {
+  flex: 1;
+  font-size: 30rpx;
+  color: #333;
+  border: none;
+  padding: 0;
+  line-height: 80rpx;
+}
+</style>

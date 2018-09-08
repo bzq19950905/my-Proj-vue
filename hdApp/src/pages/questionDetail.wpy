@@ -1,0 +1,64 @@
+<template>
+  <view class="box">
+    <view class="head">{{ids}}</view>
+    <view class="main"></view>
+    <start-leven :propDatas="starLevenData" wx:if="{{type === 'question'}}"/>
+    <btnGroup-com wx:if="{{type === 'trends'}}"/>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import StartLeven from '../components/StartLeven'
+import BtnGroup from '../components/btnGroup'
+
+export default class QuestionDetail extends wepy.page {
+  config = {
+    navigationBarTitleText: '我的提问'
+  }
+  onLoad(options) {
+    let type = options.type
+    this.type = type
+    if (type === 'question') {
+      this.ids = options.id
+    }
+  }
+  components = {
+    'start-leven': StartLeven,
+    'btnGroup-com': BtnGroup
+  }
+  data = {
+    ids: null,
+    type: null,
+    starLevenData: {
+      text: '对这个回答满意吗？请匿名打分',
+      leven: 0
+    }
+  }
+}
+</script>
+
+<style scoped>
+.box {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.head {
+  width: 100%;
+  height: 100rpx;
+  background: #fcc;
+}
+.main {
+  width: 100%;
+  flex: 1;
+  background: rgb(170, 154, 154);
+}
+.foot {
+  width: 100%;
+  height: 130rpx;
+  background: #eff;
+}
+</style>

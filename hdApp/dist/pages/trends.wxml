@@ -1,0 +1,71 @@
+
+<view class="container">
+  
+<view class="HelloBox _2d0ae68" wx:if="{{isShowHello}}">
+  <swiper duration="{{$helloCom$duration}}" class="swiper-box _2d0ae68" bindchange="$helloCom$swiperChange">
+    <swiper-item class="_2d0ae68">
+      <view class="swiperItem _2d0ae68">第1页</view>
+    </swiper-item>
+    <swiper-item class="_2d0ae68">
+      <view class="swiperItem _2d0ae68">第2页
+        <button open-type="getUserInfo" bindgetuserinfo="$helloCom$bindGetUserInfo" class="_2d0ae68">用户授权</button>
+        <button type="default" bindtap="$helloCom$passFn" class="passBtn _2d0ae68">跳过</button>
+      </view>
+    </swiper-item>
+  </swiper>
+  <!--重置小圆点的样式 -->
+  <view class="dots _2d0ae68">
+    <view class="dot {{$helloCom$currentSwiper === 0 ? ' active' : ''}} _2d0ae68"/>
+    <view class="dot {{$helloCom$currentSwiper === 1 ? ' active' : ''}} _2d0ae68"/>
+  </view>
+</view>
+  
+<view class="LoginInitBox _170471a" wx:if="{{isShowLoginInit}}">
+  <view class="chooseLike _170471a">
+    <view class="chooseLike_title _170471a">选择你感兴趣的领域</view>
+    <view class="chooseLike_content _170471a">
+      <block  wx:for="{{$loginInitCom$likeArr}}" wx:key="{{item.id}}" class="_170471a">
+        <text class="like_item {{item.active ? 'active' : ''}} _170471a" bindtap="$loginInitCom$selectLikeFn" data-wpyselectlikefn-a="{{item}}">{{item.title}}</text>
+      </block>
+    </view>
+  </view>
+  <view class="inputWorkYear _170471a">
+    <view class="inputWorkYear_title chooseLike_title _170471a">填写工作年限</view>
+    <view class="inputWorkYear_content chooseLike_content _170471a">
+      <input type="text" value="{{$loginInitCom$inputVal}}" bindchange="$loginInitCom$changeFn" class="_170471a"/>
+      <text class="_170471a">年</text>
+    </view>
+  </view>
+  <view class="submitBox _170471a">
+    <button bindtap="$loginInitCom$clickSaveFn" class="_170471a">提交</button>
+  </view>
+</view>
+  <view class="main"  wx:if="{{isShowMain}}">
+    <view class="header">
+      <view class="header_left">
+        <view>前端分享会</view>
+        <view>9.29 北京</view>
+      </view>
+      <view class="header_right">
+        <text class="sub">立即报名</text>
+      </view>
+    </view>
+    <block wx:for="{{mainList}}" wx:key="{{item.id}}">
+      <navigator class="section" url="./questionDetail?type=trends">
+        <view class="section_tit">
+          <text>{{item.title}}</text>
+          <icon type="success"/>
+        </view>
+        <view class="section_con">
+          <text>{{item.des}}</text>
+        </view>
+        
+<view class="btnGroup _b3e19ad">
+  <button class="_b3e19ad">收藏{{$btnGroupCom$item.collect}}</button>
+  <button class="_b3e19ad">有用{{$btnGroupCom$item.use}}</button>
+  <button class="_b3e19ad">评论{{$btnGroupCom$item.comment}}</button>
+</view>
+      </navigator>
+    </block>
+  </view>
+</view>

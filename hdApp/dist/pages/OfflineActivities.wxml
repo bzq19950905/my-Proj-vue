@@ -1,0 +1,21 @@
+
+<view class="container _75c34c8">
+  <view class="topProgress _75c34c8">
+    <view class="topProgress_header _75c34c8">
+      <view class="topProgress_header_con _75c34c8"  wx:for="{{headData}}" wx:key="{{index}}">
+        <view class="topProgress_header_con_tit _75c34c8">{{item.tit}}</view>
+        <view class="topProgress_header_con_bgnum _75c34c8">{{item.num}}</view>
+        <view wx:if="{{index!=4}}" class="line _75c34c8"/>
+      </view>
+    </view>
+    <form bindsubmit="formSubmit" class="form _75c34c8">
+      <view  wx:for="{{mainData}}" wx:key="{{index}}" class="_75c34c8">
+        <view class="section__title _75c34c8">{{item.tit}}</view>
+        <view class="section__title_input _75c34c8">
+          <input name="input{{index}}" class="_75c34c8"/>
+        </view>
+      </view>
+      <button class="btn _75c34c8" formType="submit">提交审核</button>
+    </form>
+  </view>
+</view>

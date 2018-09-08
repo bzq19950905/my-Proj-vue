@@ -1,0 +1,98 @@
+<template>
+<view class="weui-tab__panel">
+  <view class="weui-tab__content">
+    <view class="list_ul">
+      <block wx:for="{{question}}" wx:key="item">
+        <view class="list_li">
+          <view class="list_li_text">
+            <view class="list_li_text_text"><text class="notoken">未读</text>{{item.title}}</view>
+            <view class="money">
+              <text class="money_m">￥{{item.money}}</text>
+              <text class="money_h">{{item.ask}}</text>
+              <text class="money_j">{{item.essence}}</text>
+            </view>
+          </view>
+          <view class='more'>
+            <image src=' http://lc-vmXIUzuc.cn-n1.lcfile.com/29f54439aa74a9d93ccf.png'/>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view> 
+</template>
+<script>
+import wepy from 'wepy'
+export default class tabQuestion extends wepy.component {
+  props = {
+    question: Array
+  }
+  onLoad() {
+    console.log(this.question)
+  }
+}
+</script>
+<style scoped>
+.list_ul {
+  width: 100%;
+  overflow: hidden;
+  margin-top: 40rpx;
+
+  margin-bottom: 20rpx;
+}
+.list_li {
+  width: 100%;
+  height: 200rpx;
+  background: #fff;
+  border-bottom: 1rpx solid #ccc;
+  margin-top: 30rpx;
+}
+.list_li:last-child {
+  border-bottom: 0;
+}
+.notoken {
+  display: inline-block;
+  width: 100rpx;
+  height: 40rpx;
+  background: palevioletred;
+  color: #fff;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  text-align: center;
+  border-radius: 10rpx;
+  margin-right: 20rpx;
+}
+.list_li_text {
+  float: left;
+}
+.list_li_text_text {
+  font-size: 36rpx;
+  margin-top: 50rpx;
+  margin-left: 40rpx;
+}
+.money {
+  margin-top: 20rpx;
+  margin-left: 40rpx;
+}
+.money_m {
+  color: gold;
+  font-size: 28rpx;
+}
+.money_h {
+  font-size: 28rpx;
+  margin-left: 30rpx;
+}
+.money_j {
+  font-size: 28rpx;
+  margin-left: 30rpx;
+}
+.more {
+  float: right;
+  line-height: 200rpx;
+}
+.more image {
+  width: 38rpx;
+  height: 38rpx;
+  margin-right: 28rpx;
+}
+</style>

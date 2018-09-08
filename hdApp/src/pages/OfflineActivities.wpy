@@ -1,0 +1,116 @@
+<template>
+<view class="container">
+  <view class="topProgress">
+    <view class="topProgress_header">
+      <view class="topProgress_header_con" wx:for="{{headData}}" wx:key="{{index}}">
+        <view class="topProgress_header_con_tit">{{item.tit}}</view>
+        <view class="topProgress_header_con_bgnum">{{item.num}}</view>
+        <view wx:if="{{index!=4}}" class="line"></view>
+      </view>
+    </view>
+    <form bindsubmit="formSubmit" class="form">
+      <view wx:for="{{mainData}}" wx:key="{{index}}">
+        <view class="section__title">{{item.tit}}</view>
+        <view class="section__title_input">
+          <input name="input{{index}}"/>
+        </view>
+      </view>
+      <button class="btn" formType="submit">提交审核</button>
+    </form>
+  </view>
+</view>
+</template>
+<script>
+import wepy from 'wepy'
+import mockData from '../common/mock'
+export default class OfflineActivities extends wepy.page {
+  config = {
+    navigationBarTitleText: '发起线下活动'
+  }
+  data = {
+    headData: mockData.offlineActivitiesHeadData,
+    mainData: mockData.offlineActivitiesMainData
+  }
+  methods = {
+    formSubmit(e) {
+      console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    }
+  }
+}
+</script>
+
+<style scoped>
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.topProgress {
+  margin: 30rpx 0;
+  background: #fff;
+}
+.topProgress {
+  width: 100%;
+  height: 100%;
+}
+.topProgress_header {
+  text-align: center;
+  width: 100%;
+  height: 100rpx;
+  margin: 40rpx 0;
+  background: #fff;
+  display: flex;
+  font-size: 28rpx;
+}
+.topProgress_header_con {
+  position: relative;
+  flex: 1;
+}
+.topProgress_header_con_tit {
+  color: #bbb;
+}
+.topProgress_header_con_bgnum {
+  margin: 0 auto;
+  width: 40rpx;
+  height: 40rpx;
+  background: #b3b3b3;
+  border-radius: 50%;
+  color: #fff;
+}
+.line {
+  width: 50rpx;
+  height: 3rpx;
+  background: #bbb;
+  position: absolute;
+  right: -20rpx;
+  top: 60rpx;
+}
+.form {
+  height: auto;
+  width: 100%;
+}
+.section__title {
+  padding: 30rpx 40rpx 10rpx;
+  background: #fff;
+}
+.section__title_input {
+  width: 100%;
+  background: #fff;
+}
+.section__title_input > input {
+  padding: 10rpx 0;
+  width: 90%;
+  margin: 0 auto;
+  border: solid 1px #ccc;
+}
+.btn {
+  width: 100%;
+  background: #c97a0e;
+  color: #f7ecdc;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  border-radius: 0;
+}
+</style>

@@ -1,0 +1,12 @@
+// 宽高
+@mixin wh($w, $h) {
+  width: $w;
+  height: $h;
+}
+// 文字大小
+$fontsize-sm: 12px;
+$fontsize-normal: 14px;
+$fontsize-lg: 16px;
+$fontsize-18: 18px;
+$fontsize-20: 20px;
+$fontsize-28: 28px;

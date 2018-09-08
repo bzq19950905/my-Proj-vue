@@ -1,0 +1,74 @@
+<template>
+<view class="container">
+  <view class="tab">
+    <text bindtap="checkStyleFn" data-id="0" class="{{activeId==0?'tab_text':''}}">已回复</text>
+    <text bindtap="checkStyleFn" data-id="1" class="{{activeId==1?'tab_text':''}}">未回复</text>
+  </view>
+  <question-con :datas.sync="propData"></question-con>
+</view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import questionCom from '../components/questionCom'
+import mockData from '../common/mock'
+export default class Question extends wepy.page {
+  config = {
+    navigationBarTitleText: '惠答'
+  }
+  onLoad() {
+    this.propData = this.list
+    let status = this.$parent.globalData.ownUserInfo.status
+    let tit = status === 'teacher' ? '我的回答' : '我的提问'
+    wepy.setNavigationBarTitle({
+      title: tit
+    })
+  }
+  components = {
+    'question-con': questionCom
+  }
+  methods = {
+    checkStyleFn(e) {
+      let id = e.target.dataset.id
+      this.activeId = id
+      let arr = id == 0 ? this.list : this.list2
+      this.propData = arr
+    }
+  }
+  data = {
+    list: mockData.QuestionAnsw,
+    list2: mockData.QuestionQues,
+    activeId: 0,
+    propData: null
+  }
+}
+</script>
+
+<style scoped>
+.container {
+  width: 100%;
+  height: 100%;
+  background: #f2f2f2;
+  padding: 0;
+  margin: 0;
+}
+
+.tab {
+  width: 100%;
+  height: 80rpx;
+  background: #fff;
+  margin: 20rpx 0;
+  font-size: 32rpx;
+  position: relative;
+}
+.tab text {
+  display: inline-block;
+  width: 160rpx;
+  text-align: center;
+  line-height: 80rpx;
+}
+.tab_text {
+  color: #f00;
+  border-bottom: 6rpx solid #f00;
+}
+</style>

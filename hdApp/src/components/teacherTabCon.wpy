@@ -1,0 +1,133 @@
+<template>
+<view class="weui-tab__panel">
+  <view class="weui-tab__content">
+    <view class="section_box">
+      <block wx:for="{{content}}" wx:key="item">
+        <view class="section_box_con" bindtap="clickFn">
+          <view class="section_con_left">
+            <image src="{{item.img}}"/>
+          </view>
+          <view class="section_con_right">
+            <view class="text_name">
+              <text class="name_userifo">{{item.name}}</text>
+              <text class="name_position">{{item.position}}</text>
+            </view>
+            <view class="section_right_little_span">
+              <text>{{item.questuion}}回答</text>
+              <text>{{item.fans}}粉丝</text>
+              <text>{{item.see}}想见</text>
+            </view>
+            <view class="text_title">{{item.title}}</view>
+            <view class="text_content">{{item.content}}</view>
+            <view class="text_appointment" wx:if="{{item.isAgree}}">
+              <text class="appointment_icon">约</text><text>10月11日下午2点北京,点击报名</text>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>
+</template>
+
+<script>
+import wepy from 'wepy'
+export default class TeacherTabCon extends wepy.component {
+  props = {
+    content: {
+      type: Array,
+      default: null
+    }
+  }
+  methods = {
+    clickFn() {
+      wepy.navigateTo({
+        url: '../pages/activeRegistration'
+      })
+    }
+  }
+}
+</script>
+<style scoped>
+.weui-tab__panel {
+  width: 100%;
+}
+.section_box {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 30rpx;
+}
+.section_box_con {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  background: #fff;
+  margin-top: 15rpx;
+  padding-bottom: 20rpx;
+  display: flex;
+  align-items: center;
+}
+.section_con_left {
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20rpx;
+}
+.section_con_left image {
+  width: 150rpx;
+  height: 150rpx;
+  display: block;
+}
+.section_con_right {
+  flex: 1;
+  padding-right: 20rpx;
+}
+.text_name {
+  padding-top: 13rpx;
+}
+.name_userifo {
+  font-size: 40rpx;
+}
+.name_position {
+  font-size: 30rpx;
+  color: #ccc;
+  padding-left: 15rpx;
+}
+.section_right_little_span {
+  font-size: 28rpx;
+  color: #ccc;
+}
+.section_right_little_span text:nth-child(2) {
+  margin-left: 30rpx;
+}
+.section_right_little_span text:nth-child(3) {
+  margin-left: 30rpx;
+}
+.text_title {
+  padding-top: 10rpx;
+  font-size: 30rpx;
+}
+.text_content {
+  padding-top: 5rpx;
+  font-size: 30rpx;
+}
+.text_appointment {
+  padding-top: 10rpx;
+  font-size: 28rpx;
+  color: rgb(243, 71, 71);
+}
+.appointment_icon {
+  display: inline-block;
+  width: 70rpx;
+  height: 40rpx;
+  background: rgb(204, 5, 5);
+  color: #fff;
+  font-size: 28rpx;
+  text-align: center;
+  line-height: 40rpx;
+  border-radius: 10rpx;
+  margin-right: 10rpx;
+}
+</style>

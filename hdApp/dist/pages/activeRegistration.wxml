@@ -1,0 +1,50 @@
+
+<view class="container _12db6b7">
+  <view class="des _12db6b7">前端技术分享会</view>
+  <view class="teacherDes _12db6b7">
+    <text class="teacherDes_tit _12db6b7">主讲导师</text>
+    <view class="teacherDes_con _12db6b7">
+      
+<block  wx:for="{{$teacherDetailLR$con}}" wx:key="{{index}}" class="_ea08213 _12db6b7">
+  <view class="teacherDes_con_item {{$teacherDetailLR$isMargin ? 'marginStyle' : ''}} _ea08213">
+    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg _ea08213">
+      <image class="weui-media-box__thumb _ea08213" src="{{item.img}}"/>
+    </view>
+    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg _ea08213">
+      <view class="weui-media-box__title _ea08213">
+        <text class="name_userifo _ea08213">{{item.name}}</text>
+        <text class="name_position _ea08213">阿里巴巴资深前端工程师</text>
+      </view>
+      <view class="weui-media-box__desc _ea08213">
+        <view class="section_right_little_span _ea08213">
+          <text class="_ea08213">158回答</text>
+          <text class="_ea08213">1000粉丝</text>
+          <text class="_ea08213">200想见</text>
+        </view>
+        <view class="text_title _ea08213">给年轻学者的网络技巧</view>
+        <view class="text_content _ea08213">Google Scholar页面</view>
+      </view>
+    </view>
+  </view>
+</block>
+    </view>
+  </view>
+  <view class="activeDes _12db6b7">
+    <text class="teacherDes_tit _12db6b7">活动信息</text>
+    <view class="activeDes_con _12db6b7">
+      <view class="weui-cell _12db6b7"  wx:for="{{activeData}}" wx:key="{{item.id}}">
+        <view class="weui-cell__hd _12db6b7">
+            <image src="{{item.iconSrc}}" class="activeDes_con_icon _12db6b7"/>
+        </view>
+        <view class="weui-cell__bd _12db6b7">{{item.tit}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="bottom _12db6b7">
+    <view class="bottom_left _12db6b7">
+      <text class="_12db6b7">￥200</text>
+      <text class="_12db6b7">5个名额</text>
+    </view>
+    <button class="bottom_right _12db6b7">立即报名</button>
+  </view>
+</view>

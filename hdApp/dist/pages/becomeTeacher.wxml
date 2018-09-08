@@ -1,0 +1,26 @@
+
+<!--logs.wxml-->
+<view class="container _00a7327">
+  <view class="apply_from _00a7327">
+    <view class="from_title _00a7327">
+      <text class="from_text _00a7327">工作履历</text><text class="from_pass _00a7327">请如实填写，否则无法通过</text>
+    </view>
+    <view class="apply_input _00a7327">
+      <view class="company_input _00a7327"  wx:for="{{formList}}" wx:key="{{item.id}}">
+        <view class="company_input_text _00a7327">{{item.tit}}</view>
+        <view class="input_focus _00a7327">
+          <input focus="{{focus}}" class="_00a7327"/>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="evaluation_zone _00a7327">
+    <view class="textarea_zone _00a7327">
+      <text class="font _00a7327">自我简介 （20-300字）</text>
+      <textarea placeholder="详细的自我介绍,有助于快速通过审核" class="_00a7327"/>
+    </view>
+  </view>
+  <view class="ksdh _00a7327">
+    <view class="ksdh_button _00a7327">提交申请</view>
+  </view>
+</view>

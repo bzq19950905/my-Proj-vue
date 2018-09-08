@@ -1,0 +1,25 @@
+@import "./../components/btnGroup.wxss";
+@import "./../components/StartLeven.wxss";
+
+.box._e07f2a2 {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.head._e07f2a2 {
+  width: 100%;
+  height: 100rpx;
+  background: #fcc;
+}
+.main._e07f2a2 {
+  width: 100%;
+  flex: 1;
+  background: rgb(170, 154, 154);
+}
+.foot._e07f2a2 {
+  width: 100%;
+  height: 130rpx;
+  background: #eff;
+}

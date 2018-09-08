@@ -1,0 +1,62 @@
+
+<view class="container _95bbeaa">
+  <view class="user _95bbeaa">
+    <view class="user_dl _95bbeaa">
+      <view class="user_dl_dd _95bbeaa">
+        <view class="user_dl_dd_p1 _95bbeaa">
+          <text class="user_name _95bbeaa">{{routerUser.name ? routerUser.name : wxUser.nickName}}</text>
+          <text class="user_dl_dd_p1_text user_dl_dd_p1_text_teacher _95bbeaa"  wx:if="{{status=='teacher'}}">导师</text>
+          <text class="user_dl_dd_p1_text _95bbeaa" bindtap="clickTo" data-wpyclickto-a="./EditMaterial">编辑</text>
+          <text class="user_dl_dd_p1_text _95bbeaa"  wx:if="{{status=='teacher'}}" bindtap="clickTo" data-wpyclickto-a="./teacherSet">设置</text>
+        </view>
+      </view>
+      <view class="user_dl_dt _95bbeaa"> 
+        <image src="{{routerUser.avatar ? routerUser.avatar : wxUser.avatarUrl}}" class="_95bbeaa"/>
+      </view>
+    </view>
+  </view>
+  <view class="description _95bbeaa">
+    <view class="description_ul _95bbeaa">
+      <view class="description_ul_li _95bbeaa" bindtap="clickTo" data-wpyclickto-a="./EditMaterial">
+        <text class="iconfont icon-location _95bbeaa"/>
+        <text class="_95bbeaa">{{routerUser.location ? routerUser.location : '当前位置'}}</text>
+      </view>
+      <view class="description_ul_li _95bbeaa" bindtap="clickTo" data-wpyclickto-a="./EditMaterial">
+        <text class="iconfont icon-wenben _95bbeaa"/>
+        <text class="_95bbeaa">{{routerUser.job ? routerUser.job : '职位'}}</text>
+      </view>
+      <view class="description_ul_li _95bbeaa" bindtap="clickTo" data-wpyclickto-a="./EditMaterial">
+        <text class="iconfont icon-wenben _95bbeaa"/>
+        <text class="_95bbeaa">{{routerUser.summary ? routerUser.summary : '自我介绍'}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="supervisor _95bbeaa"  wx:if="{{status!=='teacher'}}">
+    <p class="_95bbeaa">申请成为导师，帮助更多人成长</p>
+    <button bindtap="clickTo" class="_95bbeaa" data-wpyclickto-a="./becomeTeacher">立即申请</button>
+  </view>
+  <view class="teacherWallet supervisor _95bbeaa" wx:if="{{status==='teacher'}}" bindtap="clickTo" data-wpyclickto-a="./teacherWallet">
+    <view class="teacherWallet_item _95bbeaa">
+      <text class="_95bbeaa">￥1000</text>
+      <text class="_95bbeaa">累计收入</text>
+    </view>
+    <view class="teacherWallet_item _95bbeaa">
+      <text class="_95bbeaa">￥800</text>
+      <text class="_95bbeaa">账户余额</text>
+    </view>
+    <text class="iconfont icon-youjiantou _95bbeaa"/>
+  </view>
+  <view class="myAction _95bbeaa">
+    <view class="myAction_ul _95bbeaa">
+      <view class="description_ul _95bbeaa">
+        <block wx:for="{{status=='student'?myAction:TmyAction}}" wx:key="{{item.id}}" class="_95bbeaa">
+          <navigator class="myAction_ul_li _95bbeaa" url="{{item.url}}">
+            <text class="myAction_ul_li_text _95bbeaa">{{item.text}}</text>
+            <text class="myAction_ul_li_des _95bbeaa">{{item.span}}</text>
+            <text class="iconfont icon-youjiantou _95bbeaa"/>
+          </navigator>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>

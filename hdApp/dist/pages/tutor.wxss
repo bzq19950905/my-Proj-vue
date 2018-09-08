@@ -1,0 +1,26 @@
+
+.container._51bca7c{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.headNav._51bca7c{
+  width: 100%;
+  height: 80rpx;
+  background: #fff;
+  overflow: hidden;
+}
+.headNav scroll-view._51bca7c {
+  white-space: nowrap; 
+  display: flex
+}
+.scroll-view_item._51bca7c{
+  padding: 0 25rpx;
+  line-height: 76rpx;
+  display: inline-block;
+  font-size: 30rpx;
+}
+.scroll-view_item_active._51bca7c{
+  font-weight: 700;
+  border-bottom: 4rpx solid #00f;
+}

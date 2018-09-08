@@ -1,0 +1,21 @@
+
+.tab_con_main_item._101d44a {
+  background: #fff;
+  padding: 20rpx 20rpx;
+  font-size: 30rpx;
+  display: flex;
+  border-bottom: 1px solid #ccc;
+}
+.tab_con_main_item text._101d44a:nth-child(1) {
+  color: #f16f6f;
+  margin: 0 10rpx;
+}
+.tab_con_main_item text._101d44a:nth-child(2) {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.tab_con_main_item text._101d44a:nth-child(3) {
+  margin: 0 10rpx;
+}

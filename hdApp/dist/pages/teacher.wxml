@@ -1,0 +1,38 @@
+
+<view class="box">
+  <view class="tab">
+    <block  wx:for="{{tabs}}" wx:key="{{index}}">
+      <text bindtap="checkStyleFn" class="{{activeIndex==index?'tab_text':''}}" data-wpycheckstylefn-a="{{index}}">{{item}}</text>
+    </block>
+  </view>
+  
+<view class="weui-tab__panel _c635da9">
+  <view class="weui-tab__content _c635da9">
+    <view class="section_box _c635da9">
+      <block  wx:for="{{$teacherTabCon$content}}" wx:key="item" class="_c635da9">
+        <view class="section_box_con _c635da9" bindtap="$teacherTabCon$clickFn">
+          <view class="section_con_left _c635da9">
+            <image src="{{item.img}}" class="_c635da9"/>
+          </view>
+          <view class="section_con_right _c635da9">
+            <view class="text_name _c635da9">
+              <text class="name_userifo _c635da9">{{item.name}}</text>
+              <text class="name_position _c635da9">{{item.position}}</text>
+            </view>
+            <view class="section_right_little_span _c635da9">
+              <text class="_c635da9">{{item.questuion}}回答</text>
+              <text class="_c635da9">{{item.fans}}粉丝</text>
+              <text class="_c635da9">{{item.see}}想见</text>
+            </view>
+            <view class="text_title _c635da9">{{item.title}}</view>
+            <view class="text_content _c635da9">{{item.content}}</view>
+            <view class="text_appointment _c635da9" wx:if="{{item.isAgree}}">
+              <text class="appointment_icon _c635da9">约</text><text class="_c635da9">10月11日下午2点北京,点击报名</text>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>
+</view>

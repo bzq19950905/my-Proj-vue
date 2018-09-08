@@ -1,0 +1,23 @@
+@import "./../components/teacherDetailLR.wxss";
+
+.container._51977b9 {
+  width: 100%;
+  height: 100%;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+}
+.con._51977b9 {
+  flex: 1;
+  overflow-y: scroll;
+}
+.btnBox._51977b9 {
+  width: 100%;
+  height: 80rpx;
+}
+.btn._51977b9 {
+  width: 100%;
+  height: 100%;
+  background: rgb(177, 132, 37);
+  color: #fff;
+}

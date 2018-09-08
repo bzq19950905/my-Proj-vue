@@ -1,0 +1,49 @@
+
+.main._60d1d96 {
+  flex: 1;
+  overflow-y: scroll;
+  width: 100%;
+}
+.con._60d1d96 {
+  width: 100%;
+  height: 120rpx;
+  background: #fff;
+  padding: 20rpx 0;
+  margin-bottom: 20rpx;
+  position: relative;
+}
+.con .iconfont._60d1d96 {
+  position: absolute;
+  right: 20rpx;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.con_tit._60d1d96 {
+  line-height: 60rpx;
+  font-size: 34rpx;
+  font-weight: 600;
+  padding-left: 20rpx;
+}
+.con_tit span._60d1d96 {
+  background: #e44f4f;
+  color: #fff;
+  font-size: 25rpx;
+  padding: 2rpx 12rpx;
+  margin-right: 10rpx;
+  line-height: 36rpx;
+  display: inline-block;
+}
+.con_des._60d1d96 {
+  line-height: 60rpx;
+  font-size: 30rpx;
+  padding-left: 20rpx;
+}
+.con_des_price._60d1d96 {
+  color: #e49529;
+}
+.con_des_isAnsw._60d1d96 {
+  color: rgb(82, 81, 81);
+}
+.con_des_isImport._60d1d96 {
+  color: rgb(82, 81, 81);
+}

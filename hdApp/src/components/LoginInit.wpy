@@ -1,0 +1,131 @@
+<template>
+<view class="LoginInitBox">
+  <view class="chooseLike">
+    <view class="chooseLike_title">选择你感兴趣的领域</view>
+    <view class="chooseLike_content">
+      <block wx:for="{{likeArr}}" wx:key="{{item.id}}">
+        <text class="like_item {{item.active ? 'active' : ''}}" bindtap="selectLikeFn({{item}})">{{item.title}}</text>
+      </block>
+    </view>
+  </view>
+  <view class="inputWorkYear">
+    <view class="inputWorkYear_title chooseLike_title">填写工作年限</view>
+    <view class="inputWorkYear_content chooseLike_content">
+      <input type="text" value="{{inputVal}}" bindchange="changeFn"/>
+      <text>年</text>
+    </view>
+  </view>
+  <view class="submitBox">
+    <button bindtap="clickSaveFn">提交</button>
+  </view>
+</view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import data from '../common/tabs'
+import baseMixin from '../mixins/base'
+export default class LoginInit extends wepy.component {
+  mixins = [baseMixin]
+  data = {
+    inputVal: '',
+    likeArr: data.data,
+    selectedLikeItem: []
+  }
+  methods = {
+    selectLikeFn(item) {
+      this.likeArr[item.id].active = !this.likeArr[item.id].active
+      this.selectedLikeItem.includes(item.title) ? this.selectedLikeItem.splice(this.selectedLikeItem.indexOf(item.title), 1) : this.selectedLikeItem.push(item.title)
+    },
+    async clickSaveFn() {
+      let reg = /^[0-9]{1,2}$/
+      if (this.selectedLikeItem.length && this.inputVal !== '' && reg.test(this.inputVal)) {
+        let result = await this.userRegister({seniority: this.inputVal})
+        if (result) {
+          this.$apply()
+          this.$emit('showMain')
+        }
+      } else {
+        wepy.showToast({
+          title: '请正确填写信息', // 提示的内容,
+          duration: 1500, // 延迟时间,
+          mask: true // 显示透明蒙层，防止触摸穿透,
+        })
+      }
+    },
+    changeFn(e) {
+      this.inputVal = e.detail.value
+      this.$apply()
+    }
+  }
+}
+</script>
+
+<style scoped>
+.LoginInitBox {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.chooseLike {
+  height: auto;
+  padding-top: 40rpx;
+}
+.chooseLike_title {
+  padding: 10rpx 20rpx;
+  font-size: 35rpx;
+}
+.chooseLike_content {
+  background: #fff;
+  height: auto;
+  padding: 25rpx 20rpx;
+}
+.like_item {
+  display: inline-block;
+  background: #ccc;
+  color: #666;
+  padding: 0 20rpx;
+  margin: 15rpx 20rpx;
+  font-size: 30rpx;
+  border-radius: 10rpx;
+}
+.active {
+  background: #0f0;
+  color: #fff;
+}
+.inputWorkYear {
+  margin-top: 20rpx;
+}
+.inputWorkYear_content {
+  padding: 30rpx;
+  position: relative;
+}
+.inputWorkYear_content input {
+  width: 450rpx;
+  height: 60rpx;
+  border: 1px solid #ccc;
+  background: #fff;
+  box-shadow: 2rpx 2rpx 2rpx #ccc, 2rpx 2rpx 2rpx #ccc, 2rpx -2rpx 2rpx #ccc,
+    -2rpx 2rpx 2rpx #ccc;
+}
+.inputWorkYear_content text {
+  position: absolute;
+  left: 430rpx;
+  top: 40rpx;
+  background: #fff;
+  z-index: 10;
+  line-height: 40rpx;
+  font-size: 35rpx;
+  color: #666;
+}
+.submitBox {
+  margin-top: 40px;
+}
+.submitBox button {
+  background: rgb(218, 154, 35);
+  color: #fff;
+  margin: 0 20rpx;
+}
+</style>

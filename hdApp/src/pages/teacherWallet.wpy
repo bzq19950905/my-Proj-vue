@@ -1,0 +1,108 @@
+<template>
+<view class="container">
+  <view class="balance">
+    <text>账户余额</text>
+    <text>￥200</text>
+    <text>提现</text>
+  </view>
+  <view class="tab">
+    <view class="tab_tit">
+      <text class="{{activeIndex===0?'activeStyle':''}}" bindtap="clickFn(0)">收入明细</text>
+      <text class="{{activeIndex===1?'activeStyle':''}}" bindtap="clickFn(1)">提现记录</text>
+    </view>
+    <view class="tab_con">
+      <view class="tab_con_tit">累计收入 ￥1000</view>
+      <view class="tab_con_main">
+        <teacher-WalletTabLeftCon :propDatas.sync="PropsList"/>
+      </view>
+    </view>
+  </view>
+</view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import TeacherWalletTabLeftCon from '../components/TeacherWalletTabLeftCon'
+import mockData from '../common/mock'
+
+export default class TeacherWallet extends wepy.page {
+  config = {
+    navigationBarTitleText: '账户资金'
+  }
+  components = {
+    'teacher-WalletTabLeftCon': TeacherWalletTabLeftCon
+  }
+  data = {
+    list: mockData.TeacherWalletList1,
+    list2: mockData.TeacherWalletList2,
+    PropsList: [],
+    activeIndex: 0
+  }
+  onLoad() {
+    this.PropsList = this.list
+  }
+  methods = {
+    clickFn(id) {
+      this.activeIndex = Number(id)
+      let datas = this.activeIndex === 0 ? this.list : this.list2
+      this.PropsList = datas
+    }
+  }
+}
+</script>
+<style scoped>
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.balance {
+  height: 240rpx;
+  background: #bbd3f8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.balance text:nth-child(1) {
+  color: #a2a3ad;
+  font-size: 30rpx;
+}
+.balance text:nth-child(2) {
+  color: #f06767;
+  font-size: 35rpx;
+}
+.balance text:nth-child(3) {
+  color: #e7effc;
+  font-size: 30rpx;
+  border: 1px solid #e7effc;
+  padding: 1rpx 18rpx;
+  border-radius: 26rpx;
+}
+
+.tab {
+  flex: 1;
+  overflow-y: scroll;
+}
+.tab_tit {
+  padding: 10rpx 20rpx 10rpx;
+  background: #fff;
+  border-bottom: 1px solid #ccc;
+}
+.tab_tit text {
+  padding: 0 20rpx;
+  font-size: 30rpx;
+  line-height: 70rpx;
+  display: inline-block;
+}
+.activeStyle {
+  border-bottom: 2px solid skyblue;
+}
+
+.tab_con_tit {
+  line-height: 70rpx;
+  padding-left: 30rpx;
+  font-size: 30rpx;
+}
+</style>

@@ -1,0 +1,34 @@
+@import "./../components/teacherTabCon.wxss";
+
+.box {
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+}
+.weui-navbar__item1 {
+  width: 25%;
+  height: 100%;
+}
+
+.tab {
+  width: 100%;
+  height: 80rpx;
+  background: #fff;
+  margin: 20rpx 0;
+  font-size: 32rpx;
+  position: relative;
+}
+.tab text {
+  display: inline-block;
+  width: 160rpx;
+  text-align: center;
+  line-height: 80rpx;
+}
+.tab_text {
+  color: #f00;
+  border-bottom: 6rpx solid #f00;
+}
+.weui-tab__panel {
+  margin: 0;
+  padding: 0;
+}

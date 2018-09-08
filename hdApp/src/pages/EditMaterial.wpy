@@ -1,0 +1,141 @@
+<template>
+<view class="container">
+  <view class="weui-cells weui-cells_after-title box">
+    <navigator
+      wx:for="{{listData1}}"
+      wx:key="{{index}}"
+      url="/pages/EditMaterialDetail?id={{myEditData[index][1]}}"
+      class="weui-cell weui-cell_access {{(myEditData[index][1]===5)?'bottomStyle':''}}"
+      hover-class="weui-cell_active">
+      <view class="weui-cell__bd">{{myEditData[index][0]}}</view>
+      <image class="weui-cell__ft weui-cell__ft_in-access img" wx:if="{{index === 'avatar'}}" src="{{item}}"/>
+      <view class="weui-cell__ft weui-cell__ft_in-access item" wx:else>{{item ? item : ''}}</view>
+    </navigator>
+    <picker class="weui-cell weui-cell_access1 bottomStyle borderNone" bindchange="bindPickerChange" value="{{interestIndex}}" range="{{interestArray}}">
+      <view class="weui-cell__bd1">兴趣领域</view>
+      <view class="weui-cell__ft1 weui-cell__ft_in-access">{{interestSelectedOption}}</view>
+    </picker>
+    <picker class="weui-cell weui-cell_access1 bottomStyle" bindchange="bindPickerChange1" value="{{index}}" range="{{array}}">
+      <view class="weui-cell__bd1">工作年限</view>
+      <view class="weui-cell__ft1 weui-cell__ft_in-access">{{selectedOption}}</view>
+    </picker>
+    <picker class="weui-cell weui-cell_access1">
+      <view class="weui-cell__bd1">性别</view>
+      <view class="weui-cell__ft1 weui-cell__ft_in-access">男</view>
+    </picker>
+  </view>
+</view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import { editData } from '../common/module'
+import { DeleteObjectKeys, toArray } from '../utils/ota'
+import { getStorage, setStorageSync } from '../utils/utils'
+import baseMixin from '../mixins/base'
+
+export default class EditMaterial extends wepy.page {
+  config = {
+    navigationBarTitleText: '编辑资料'
+  }
+  mixins = [baseMixin]
+  async onShow() {
+    let uid = await getStorage('uid')
+    let data = await this.getRouterUserInfo(uid)
+    setStorageSync('userInfo', data)
+    let wxUser = wepy.getStorageSync('WXUserInfo')
+    let newData = DeleteObjectKeys(data, editData)
+    this.listData1 = newData;
+    (data.avatar === '') && (this.listData1.avatar = wxUser.avatarUrl)
+    this.myEditData = editData
+    this.selectedOption = data ? data.seniority : '1年'
+    this.$apply()
+  }
+  data = {
+    listData1: {},
+    myEditData: {},
+    wxUserInfo: '',
+    array: toArray(20),
+    interestArray: [],
+    index: 0,
+    interestIndex: 0,
+    selectedOption: '3年',
+    interestSelectedOption: '前端js'
+  }
+  methods = {
+    async bindPickerChange(e) {
+      let val1 = e.detail.value
+      this.interestIndex = val1
+      this.interestSelectedOption = this.interestArray[val1]
+    },
+    async bindPickerChange1(e) {
+      let val = e.detail.value
+      this.index = val
+      this.selectedOption = this.array[val]
+      await this.editUser({
+        seniority: this.array[val]
+      })
+    },
+    chooseLocation() {
+      wepy.chooseLocation({
+        success: function(res) {
+          console.log(res)
+        }
+      })
+    }
+  }
+}
+</script>
+
+<style scoped>
+.item {
+  width: 250rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: right;
+  white-space: nowrap;
+}
+.img {
+  width: 50rpx;
+  height: 50rpx;
+}
+.box {
+  margin-top: 50rpx;
+}
+.bottomStyle {
+  box-shadow: 1rpx 8rpx 10rpx rgb(233, 230, 230);
+  margin-bottom: 10rpx;
+}
+.borderNone::before {
+  border: none;
+}
+.headSculpture {
+  width: 60rpx;
+  height: 60rpx;
+}
+.headSculpture image {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.ellipsis {
+  width: 300rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: right;
+}
+.weui-cell_access1 {
+  width: 100%;
+  position: relative;
+}
+.weui-cell__bd1 {
+  display: inline-block;
+}
+.weui-cell__ft1 {
+  display: inline-block;
+  position: absolute;
+  right: 90rpx;
+  color: #999999;
+}
+</style>

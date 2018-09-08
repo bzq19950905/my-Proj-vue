@@ -1,0 +1,22 @@
+
+<view class="container _fce8e6e">
+  <view class="weui-cells weui-cells_after-title box _fce8e6e">
+    <navigator  wx:for="{{listData1}}" wx:key="{{index}}" url="/pages/EditMaterialDetail?id={{myEditData[index][1]}}" class="weui-cell weui-cell_access {{(myEditData[index][1]===5)?'bottomStyle':''}} _fce8e6e" hover-class="weui-cell_active">
+      <view class="weui-cell__bd _fce8e6e">{{myEditData[index][0]}}</view>
+      <image class="weui-cell__ft weui-cell__ft_in-access img _fce8e6e" wx:if="{{index === 'avatar'}}" src="{{item}}"/>
+      <view class="weui-cell__ft weui-cell__ft_in-access item _fce8e6e" wx:else>{{item ? item : ''}}</view>
+    </navigator>
+    <picker class="weui-cell weui-cell_access1 bottomStyle borderNone _fce8e6e" bindchange="bindPickerChange" value="{{interestIndex}}" range="{{interestArray}}">
+      <view class="weui-cell__bd1 _fce8e6e">兴趣领域</view>
+      <view class="weui-cell__ft1 weui-cell__ft_in-access _fce8e6e">{{interestSelectedOption}}</view>
+    </picker>
+    <picker class="weui-cell weui-cell_access1 bottomStyle _fce8e6e" bindchange="bindPickerChange1" value="{{index}}" range="{{array}}">
+      <view class="weui-cell__bd1 _fce8e6e">工作年限</view>
+      <view class="weui-cell__ft1 weui-cell__ft_in-access _fce8e6e">{{selectedOption}}</view>
+    </picker>
+    <picker class="weui-cell weui-cell_access1 _fce8e6e">
+      <view class="weui-cell__bd1 _fce8e6e">性别</view>
+      <view class="weui-cell__ft1 weui-cell__ft_in-access _fce8e6e">男</view>
+    </picker>
+  </view>
+</view>

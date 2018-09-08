@@ -1,0 +1,130 @@
+
+.container._00a7327 {
+  width: 100%;
+  overflow: hidden;
+  background: #efeff4;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.apply_from._00a7327 {
+  background: #fff;
+  width: 100%;
+  margin-bottom: 10rpx;
+  padding: 10rpx 0;
+}
+.from_title._00a7327 {
+  padding-top: 20rpx;
+  padding-left: 20rpx;
+  font-size: 32rpx;
+}
+.from_pass._00a7327 {
+  color: darkgray;
+  padding-left: 40rpx;
+}
+.apply_input._00a7327 {
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 20rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+.apply_input input._00a7327 {
+  line-height: 30rpx;
+}
+.input_company._00a7327 {
+  width: 100%;
+  overflow: hidden;
+  padding-bottom: 20rpx;
+}
+.company_input._00a7327 {
+  width: 50%;
+  display: block;
+}
+.company_input_text._00a7327 {
+  font-size: 32rpx;
+  margin-bottom: 10rpx;
+  color: #606266;
+}
+.input_focus._00a7327 {
+  width: 90%;
+  border: 1rpx solid #ccc;
+  height: 80rpx;
+  border-radius: 8rpx;
+}
+.input_focus input._00a7327 {
+  width: 100%;
+  height: 80rpx;
+  font-size: 32rpx;
+  border-radius: 8rpx;
+}
+.company_input_two._00a7327 {
+  width: 40%;
+  float: right;
+}
+.input_focus_one._00a7327 {
+  width: 90%;
+  border: 1rpx solid #ccc;
+  height: 80rpx;
+  border-radius: 8rpx;
+}
+.input_focus_one inpiut._00a7327 {
+  width: 100%;
+  height: 80rpx;
+  font-size: 32rpx;
+  border-radius: 8rpx;
+}
+
+.evaluation_zone._00a7327 {
+  flex: 1;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+  margin-bottom: 40rpx;
+}
+.textarea_zone._00a7327 {
+  background: #fff;
+  height: 100%;
+  font-size: 14px;
+  overflow: hidden;
+  clear: both;
+  z-index: 0;
+}
+.font._00a7327 {
+  margin-left: 30rpx;
+}
+.textarea_zone textarea._00a7327 {
+  height: 400rpx;
+  padding: 20rpx 28rpx;
+  width: 100%;
+  line-height: 28rpx;
+  color: #606266;
+  border: 0;
+}
+.ksdh._00a7327 {
+  width: 100%;
+  height: 70rpx;
+  background: #ffffff;
+  box-shadow: 0 -1px 10px 0 rgba(0, 0, 0, 0.06);
+}
+.ksdh_iphonex._00a7327 {
+  height: 160rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+  box-shadow: 0 -1px 10px 0 rgba(0, 0, 0, 0.06);
+}
+.ksdh_button._00a7327 {
+  background: goldenrod;
+  width: 100%;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #ffffff;
+  letter-spacing: 5rpx;
+  text-align: center;
+  line-height: 70rpx;
+}

@@ -1,0 +1,116 @@
+<template>
+<!--logs.wxml-->
+<view class="container">
+    <view class="item" wx:if="{{id==1}}">
+        <form bindsubmit="formSubmit" data-type="name">
+          <input placeholder="请输入新的用户名" name="input"/>
+          <button formType="submit">保存更改</button>
+        </form>
+    </view>
+    <view class="item" wx:if="{{id==2}}">
+        <upload-img/>
+    </view>
+    <view class="item" wx:if="{{id==3}}">
+      <form bindsubmit="formSubmit" data-type="title">
+        <input placeholder="请输入职位" name="input"/>
+        <button formType="submit">保存更改</button>
+      </form>
+    </view>
+    <view class="item" wx:if="{{id==4}}">
+      <form bindsubmit="formSubmit" data-type="location">
+        <input placeholder="请输入位置" name="input"/>
+        <button formType="submit">保存更改</button>
+      </form>
+    </view>
+    <view class="item" wx:if="{{id==5}}">
+      <form bindsubmit="formSubmit" data-type="summary">
+        <textarea placeholder="请输入自我介绍" name="textarea"></textarea>
+        <button formType="submit">保存更改</button>
+      </form>
+    </view>
+</view>
+</template>
+<script>
+import wepy from 'wepy'
+import baseMixin from '../mixins/base'
+import UpLoadImg from '../components/upLoadImg'
+
+export default class EditMaterialDetail extends wepy.page {
+  config = {
+    navigationBarTitleText: '编辑'
+  }
+  mixins = [baseMixin]
+  async onLoad(options) {
+    let id = options.id
+    this.id = id
+    let data = await this.getRouterUserInfo()
+    this.editOption = data
+    this.$apply()
+  }
+  data = {
+    id: null,
+    userInfo: {},
+    flag: false,
+    editOption: {}
+  }
+  methods = {
+    async formSubmit(e) {
+      let val = e.detail.value
+      let type = e.target.dataset.type
+      val = type === 'summary' ? val.textarea : val.input
+      if (val === '' || val === '') {
+        wepy.showToast({
+          title: '不能为空',
+          icon: 'error',
+          duration: 1000
+        })
+        return false
+      }
+      if (type === 'name') {
+        wepy.showModal({
+          title: '提示',
+          content: '用户名不可更改',
+          confirmText: '确定',
+          confirmColor: '#3CC51F'
+        })
+      } else {
+        let resultData = await this.editUser({
+          [type]: val
+        })
+        if (resultData && resultData.errcode === 0) {
+          wepy.removeStorageSync('userInfo')
+          wepy.navigateBack({
+            url: '../pages/EditMaterial'
+          })
+        }
+      }
+    }
+  }
+  components = {
+    'upload-img': UpLoadImg
+  }
+}
+</script>
+<style scoped>
+.container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+input {
+  width: 100%;
+  height: 70rpx;
+  background: #fff;
+  margin: 20rpx 0;
+  border-bottom: 1px solid #ccc;
+}
+.item {
+  width: 100%;
+  height: 100%;
+}
+map {
+  width: 100%;
+  height: 50%;
+}
+</style>
+

@@ -1,0 +1,68 @@
+<template>
+<block wx:for="{{con}}" wx:key="{{index}}">
+  <view class="teacherDes_con_item {{isMargin ? 'marginStyle' : ''}}">
+    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+      <image class="weui-media-box__thumb" src="{{item.img}}" />
+    </view>
+    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+      <view class="weui-media-box__title">
+        <text class="name_userifo">{{item.name}}</text>
+        <text class="name_position">阿里巴巴资深前端工程师</text>
+      </view>
+      <view class="weui-media-box__desc">
+        <view class="section_right_little_span">
+          <text>158回答</text>
+          <text>1000粉丝</text>
+          <text>200想见</text>
+        </view>
+        <view class="text_title">给年轻学者的网络技巧</view>
+        <view class="text_content">Google Scholar页面</view>
+      </view>
+    </view>
+  </view>
+</block>
+</template>
+
+<script>
+import wepy from 'wepy'
+export default class TeacherDetailLR extends wepy.component {
+  props = ['con', 'isMargin']
+}
+</script>
+<style scoped>
+.teacherDes_con_item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 10rpx;
+}
+.name_userifo {
+  font-size: 42rpx;
+}
+.name_position {
+  font-size: 30rpx;
+  color: #ccc;
+  padding-left: 15rpx;
+}
+.section_right_little_span {
+  font-size: 28rpx;
+  color: #ccc;
+}
+.section_right_little_span text:nth-child(2) {
+  margin-left: 30rpx;
+}
+.section_right_little_span text:nth-child(3) {
+  margin-left: 30rpx;
+}
+.text_title {
+  padding-top: 10rpx;
+  font-size: 30rpx;
+}
+.text_content {
+  padding-top: 10rpx;
+  font-size: 30rpx;
+}
+.marginStyle {
+  background: #fff;
+  margin: 25rpx;
+}
+</style>

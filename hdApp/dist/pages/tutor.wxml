@@ -1,0 +1,13 @@
+
+<view class="container _51bca7c">
+  <view class="headNav _51bca7c">
+     <scroll-view scroll-x="true" scroll-top="{{scrollTop}}" scroll-into-view="{{toView}}" class="_51bca7c">
+       <block  wx:for="{{list}}" wx:key="{{item.id}}" class="_51bca7c">
+      <view class="scroll-view_item {{index ===0 ? 'scroll-view_item_active' : ''}} _51bca7c">{{item.title}}</view>
+      </block>
+    </scroll-view>
+  </view>
+  <view class="main _51bca7c">
+    <view class="section _51bca7c"/>
+  </view>
+</view>
